@@ -1,5 +1,7 @@
 # todo_app
 
+<img src="./doc/image/readme.png">
+
 A new Flutter project.
 
 ## Getting Started
