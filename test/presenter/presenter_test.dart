@@ -15,7 +15,7 @@ void mian() {
       final mock = MockTodoState();
       when(mock.setTask(any));
 
-      final presenter = TodoPresenterImpl();
+      final presenter = TodoPresenterImpl(mock);
       final List<Task> arg = [];
       final _ = await presenter.display(arg);
       

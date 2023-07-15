@@ -15,7 +15,7 @@ class TodoDriverImpl implements TodoDriver {
     // データベースファイルが存在する場合は削除
     // デバッグ用
     final databasePath = join(await getDatabasesPath(), 'tasks.db');
-    await deleteDatabase(databasePath);
+    // await deleteDatabase(databasePath);
 
     return await openDatabase(
       databasePath,
@@ -38,8 +38,8 @@ class TodoDriverImpl implements TodoDriver {
         res[i]['id'],
         res[i]['name'],
         res[i]['desc'],
-        res[i]['created_at'],
-        res[i]['updated_at']
+        DateTime.parse(res[i]['created_at']),
+        DateTime.parse(res[i]['updated_at'])
       );
     });
   }
