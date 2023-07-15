@@ -8,6 +8,7 @@ import 'dart:async' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:todo_app/domain/entity.dart' as _i2;
 import 'package:todo_app/usecase/port/todoinputport.dart' as _i4;
+import 'package:todo_app/usecase/port/todooutputport.dart' as _i6;
 import 'package:todo_app/usecase/toodousecase.dart' as _i3;
 
 // ignore_for_file: type=lint
@@ -155,4 +156,19 @@ class MockTodoInPutPort extends _i1.Mock implements _i4.TodoInPutPort {
           ),
         )),
       ) as _i5.Future<_i3.ErrorMsg>);
+}
+
+/// A class which mocks [TodoOutPutPort].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockTodoOutPutPort extends _i1.Mock implements _i6.TodoOutPutPort {
+  @override
+  _i5.Future<void> display(List<_i2.Task>? tasks) => (super.noSuchMethod(
+        Invocation.method(
+          #display,
+          [tasks],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 }

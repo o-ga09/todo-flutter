@@ -1,16 +1,19 @@
 import 'package:flutter/foundation.dart';
 import 'package:todo_app/usecase/port/todoinputport.dart';
+import 'package:todo_app/usecase/port/todooutputport.dart';
 
 import '../domain/entity.dart';
 
 class TodoUsecase {
   final TodoInPutPort todoInPutPort;
+  final TodoOutPutPort todoOutPutPort;
 
-  TodoUsecase(this.todoInPutPort);
+  TodoUsecase(this.todoInPutPort,this.todoOutPutPort);
   
   Future<List<ResponseData>> getAll() async {
     final List<Task> res = await todoInPutPort.getAll();
 
+    todoOutPutPort.display(res);
     return List.generate(res.length, (i) {
       return ResponseData(
         res[i].taskId.value,
