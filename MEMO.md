@@ -11,3 +11,6 @@ databaseFactory is only initialized when using sqflite. When using `sqflite_comm
 You must call `databaseFactory = databaseFactoryFfi;` before using global openDatabase API
 
 ~~~
+
+
+https://stackoverflow.com/questions/55424575/bad-state-mock-method-was-not-called-within-when-was-a-real-method-called

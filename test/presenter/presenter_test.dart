@@ -9,7 +9,7 @@ import 'presenter_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<TodoState>()])
 
-void mian() {
+void main() {
   group("プレゼンターのテスト", () {
     test("ステートを更新する", () async {
       final mock = MockTodoState();

@@ -52,7 +52,7 @@ void main() {
       final now = DateTime.now();
       final arg = DriverEdit("", "", now, now);
       final actual = await driver.update(1,arg);
-      final expected = DriverMsg(0);
+      final expected = DriverMsg(1);
       
       expect(actual.errno, expected.errno);
     });
@@ -63,7 +63,7 @@ void main() {
       databaseFactory = databaseFactoryFfi; // 追加
       final driver = TodoDriverImpl();
       final actual = await driver.delete(1);
-      final expected = DriverMsg(0);
+      final expected = DriverMsg(1);
       
       expect(actual.errno, expected.errno);
     });

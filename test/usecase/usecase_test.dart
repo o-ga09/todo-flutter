@@ -35,6 +35,7 @@ void main() {
       final now = DateTime.now();
       final mockdata = Task(TaskId(1), TaskName(""), TaskDesc(""), TaskCreatedAt(now), TaskUpdatedAt(now));
       when(inputMock.getById(1)).thenAnswer((_) => Future.value(mockdata));
+      when(outputMock.display(any));
 
 
       final usecase = TodoUsecase(inputMock,outputMock);
@@ -43,6 +44,7 @@ void main() {
       final expected = ResponseData(1, "", "", now.toIso8601String(), now.toIso8601String());
 
       verify(inputMock.getById(1)).called(1);
+      verifyNever(outputMock.display(any));
       expect(actual.id,expected.id);
       expect(actual.taskName,expected.taskName);
       expect(actual.taskDesc,expected.taskDesc);
@@ -56,6 +58,7 @@ void main() {
       final now = DateTime.now();
       final mockReturndata = ErrorMsg(1, "can not create task!");
       when(inputMock.create(any)).thenAnswer((_) => Future.value(mockReturndata));
+      when(outputMock.display(any));
 
 
       final usecase = TodoUsecase(inputMock,outputMock);
@@ -65,6 +68,7 @@ void main() {
       const int expected = 1;
 
       verify(inputMock.create(any)).called(1);
+      verifyNever(outputMock.display(any));
       expect(actual,expected);
     });
     test("任意の１つのタスクを編集する", () async {
@@ -73,6 +77,7 @@ void main() {
       final now = DateTime.now();
       final mockReturndata = ErrorMsg(1, "can not create task!");
       when(inputMock.update(any,any)).thenAnswer((_) => Future.value(mockReturndata));
+      when(outputMock.display(any));
 
 
       final usecase = TodoUsecase(inputMock,outputMock);
@@ -82,6 +87,7 @@ void main() {
       const int expected = 1;
 
       verify(inputMock.update(any,any)).called(1);
+      verifyNever(outputMock.display(any));
       expect(actual,expected);
     });
     test("任意の１つのタスクを削除する", () async {
@@ -89,6 +95,7 @@ void main() {
       final outputMock = MockTodoOutPutPort();
       final mockReturndata = ErrorMsg(1, "can not create task!");
       when(inputMock.delete(1)).thenAnswer((_) => Future.value(mockReturndata));
+      when(outputMock.display(any));
 
 
       final usecase = TodoUsecase(inputMock,outputMock);
@@ -97,6 +104,7 @@ void main() {
       const int expected = 1;
 
       verify(inputMock.delete(1)).called(1);
+      verifyNever(outputMock.display(any));
       expect(actual,expected);
     });
    });
