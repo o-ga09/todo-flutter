@@ -14,3 +14,7 @@ You must call `databaseFactory = databaseFactoryFfi;` before using global openDa
 
 
 https://stackoverflow.com/questions/55424575/bad-state-mock-method-was-not-called-within-when-was-a-real-method-called
+
+２つならべることできない
+      when(inputMock.getAll()).thenAnswer((_) => Future.value(expected));
+      when(outputMock.display(any));

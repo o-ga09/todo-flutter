@@ -18,7 +18,6 @@ void main() {
       final outputMock = MockTodoOutPutPort();
       List<Task> expected = [];
       when(inputMock.getAll()).thenAnswer((_) => Future.value(expected));
-      when(outputMock.display(any));
 
       final usecase = TodoUsecase(inputMock,outputMock);
 
@@ -35,7 +34,6 @@ void main() {
       final now = DateTime.now();
       final mockdata = Task(TaskId(1), TaskName(""), TaskDesc(""), TaskCreatedAt(now), TaskUpdatedAt(now));
       when(inputMock.getById(1)).thenAnswer((_) => Future.value(mockdata));
-      when(outputMock.display(any));
 
 
       final usecase = TodoUsecase(inputMock,outputMock);
@@ -58,7 +56,6 @@ void main() {
       final now = DateTime.now();
       final mockReturndata = ErrorMsg(1, "can not create task!");
       when(inputMock.create(any)).thenAnswer((_) => Future.value(mockReturndata));
-      when(outputMock.display(any));
 
 
       final usecase = TodoUsecase(inputMock,outputMock);
@@ -77,7 +74,6 @@ void main() {
       final now = DateTime.now();
       final mockReturndata = ErrorMsg(1, "can not create task!");
       when(inputMock.update(any,any)).thenAnswer((_) => Future.value(mockReturndata));
-      when(outputMock.display(any));
 
 
       final usecase = TodoUsecase(inputMock,outputMock);
@@ -95,7 +91,6 @@ void main() {
       final outputMock = MockTodoOutPutPort();
       final mockReturndata = ErrorMsg(1, "can not create task!");
       when(inputMock.delete(1)).thenAnswer((_) => Future.value(mockReturndata));
-      when(outputMock.display(any));
 
 
       final usecase = TodoUsecase(inputMock,outputMock);
